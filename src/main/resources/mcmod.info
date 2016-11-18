@@ -1,0 +1,16 @@
+[
+{
+  "modid": "iamCommand",
+  "name": "IAm Command",
+  "description": "Replaces whatever the target player writes in the chat with 'I am' followed with whatever you want.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Alriac"],
+  "credits": "Alriac",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
