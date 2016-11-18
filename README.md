@@ -1,4 +1,4 @@
-# MinecraftModIAmCommand
+# IAm Command
 This mod adds one simple command to Minecraft: iam
 
 Using this command against a player will replace whatever they say on the chat with "I am" followed with whatever you want (you need to be an OP to use it)
