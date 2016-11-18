@@ -7,7 +7,8 @@ The usage is: iam <targetPlayerName> [customName]
 Where "targetPlayerName" is the player who will suffer the effects of the command and the "customName" is what they will say after "I am".
 If you don't write any custom name parameter, the player name will be used as customName parameter.
 
-To remove the command effects from a player, just write "iam" followed with the player name without a customName: iam <targetPlayerName>
+To remove the command effects from a player, just write the command "iam" followed with the player name without a customName: iam <targetPlayerName>
+To remove the command effects from all the players yo ever added, use the command "iam clear all".
 
 Examples:
     Command: iam Player1
