@@ -18,6 +18,6 @@ Examples:
     Command: iam Player1 BATMAN
         Chat output: <Player1> I am BATMAN
 
-I have tested this mod on my private server along with other 50 mods and was working fine. Please let me know if you find any incompatibility or bug!
+Since version 1.1, there is a config option to enable or diasble the addition of the "I am" text at the beginning of the replaced chat text. If disabled, you can always write it manually like "iam Player1 I am ME".
 
-Tested on Minecraft 1.10.2, needs Forge 12.18.2.2099 or newer.
+I have tested this mod on my private server along with other 50 mods and was working fine. Please let me know if you find any incompatibility or bug!
