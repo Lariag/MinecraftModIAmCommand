@@ -9,7 +9,16 @@ public class EventHandler {
     public void ServerChatEvent(ServerChatEvent event){
         if(IAm.playernames.containsKey(event.getUsername().toLowerCase())){
             event.setCanceled(true);
-            event.getPlayer().mcServer.getPlayerList().sendChatMsg(new TextComponentString("<"+event.getUsername()+"> "+(ConfigHandler.addIamAtTheBeginning ? "I am ":"")+IAm.playernames.get(event.getUsername().toLowerCase())));
+            String newText = "<"+event.getUsername()+"> ";
+            if(ConfigHandler.addIamAtTheBeginning){
+                if(ConfigHandler.textToAddAtTheBeginning != null && !ConfigHandler.textToAddAtTheBeginning.equals(""))
+                newText += ConfigHandler.textToAddAtTheBeginning+' ';
+                else newText += "I am ";
+            }else{
+                newText += "";
+            }
+            newText+=IAm.playernames.get(event.getUsername().toLowerCase());
+            event.getPlayer().mcServer.getPlayerList().sendChatMsg(new TextComponentString(newText));
         }
     }
 }

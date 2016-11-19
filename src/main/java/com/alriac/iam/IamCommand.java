@@ -11,6 +11,7 @@ import net.minecraft.util.text.TextComponentString;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class IamCommand implements ICommand {
 
@@ -54,11 +55,18 @@ public class IamCommand implements ICommand {
                 if(args.length == 0)
                 {
                     sender.addChatMessage(new TextComponentString("Usage: iam <targetPlayerName> [customName]"));
-                    sender.addChatMessage(new TextComponentString("Check if \"I am\" will be added at the beginning: iam ?"));
+                    sender.addChatMessage(new TextComponentString("Usage: iam ?"));
+                    sender.addChatMessage(new TextComponentString("Usage: iam -list"));
+                    sender.addChatMessage(new TextComponentString("Usage: iam clear all"));
                     return;
                 }else if(args.length == 1){
                     if(args[0].toLowerCase().equals("?")){
                         sender.addChatMessage(new TextComponentString("\"I am\" will "+(ConfigHandler.addIamAtTheBeginning ?"":"not")+" be added."));
+                    }else if(args[0].toLowerCase().equals("-list")) {
+                        sender.addChatMessage(new TextComponentString("Listing all("+IAm.playernames.size()+") players affected by I AM mod and what they will say:"));
+                        for (Map.Entry<String, String> entry : IAm.playernames.entrySet()) {
+                            sender.addChatMessage(new TextComponentString(" ["+entry.getKey()+"] -> ["+entry.getValue()+"]"));
+                        }
                     }else if(IAm.addName(args[0].toLowerCase().toLowerCase(), "")){
                         sender.addChatMessage(new TextComponentString("Adding I am mode to " + args[0]));
                     }else{
