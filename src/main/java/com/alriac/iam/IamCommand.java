@@ -1,11 +1,9 @@
 package com.alriac.iam;
 
 
-import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.entity.EntityList;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
@@ -56,9 +54,12 @@ public class IamCommand implements ICommand {
                 if(args.length == 0)
                 {
                     sender.addChatMessage(new TextComponentString("Usage: iam <targetPlayerName> [customName]"));
+                    sender.addChatMessage(new TextComponentString("Check if \"I am\" will be added at the beginning: iam ?"));
                     return;
                 }else if(args.length == 1){
-                    if(IAm.addName(args[0].toLowerCase().toLowerCase(), "")){
+                    if(args[0].toLowerCase().equals("?")){
+                        sender.addChatMessage(new TextComponentString("\"I am\" will "+(ConfigHandler.addIamAtTheBeginning ?"":"not")+" be added."));
+                    }else if(IAm.addName(args[0].toLowerCase().toLowerCase(), "")){
                         sender.addChatMessage(new TextComponentString("Adding I am mode to " + args[0]));
                     }else{
                         sender.addChatMessage(new TextComponentString("Removing I am mode from " + args[0]));

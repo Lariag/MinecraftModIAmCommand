@@ -1,14 +1,14 @@
 [
 {
-  "modid": "iamCommand",
-  "name": "IAm Command",
-  "description": "Replaces whatever the target player writes in the chat with 'I am' followed with whatever you want.",
+  "modid": "iam",
+  "name": "I Am",
+  "description": "Replaces whatever the target player writes in the chat with 'I am' followed with whatever you want. The I am text can be disabled via config file.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["Alriac"],
-  "credits": "Alriac",
+  "credits": "Thanks to everybody who share code examples and help in the forums.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
