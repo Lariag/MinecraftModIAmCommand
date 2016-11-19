@@ -1,6 +1,7 @@
 package com.alriac.iam;
 
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.config.Property;
 
 import java.io.File;
 
