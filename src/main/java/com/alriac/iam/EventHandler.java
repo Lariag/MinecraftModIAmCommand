@@ -1,19 +1,24 @@
 package com.alriac.iam;
 
-
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.ServerChatEvent;
-
-import java.util.Random;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class EventHandler {
     @SubscribeEvent
     public void ServerChatEvent(ServerChatEvent event){
-        if(IAm.playernames.containsKey(event.username.toLowerCase())){
+        if(IAm.playernames.containsKey(event.getUsername().toLowerCase())){
             event.setCanceled(true);
-            MinecraftServer.getServer().getConfigurationManager().sendChatMsg(new ChatComponentText("<"+event.username+"> "+(ConfigHandler.addIamAtTheBeginning? "I am ":"")+IAm.playernames.get(event.username.toLowerCase())));
+            String newText = "<"+event.getUsername()+"> ";
+            if(ConfigHandler.addIamAtTheBeginning){
+                if(ConfigHandler.textToAddAtTheBeginning != null && !ConfigHandler.textToAddAtTheBeginning.equals(""))
+                newText += ConfigHandler.textToAddAtTheBeginning+' ';
+                else newText += "I am ";
+            }else{
+                newText += "";
+            }
+            newText+=IAm.playernames.get(event.getUsername().toLowerCase());
+            event.getPlayer().mcServer.getPlayerList().sendChatMsg(new TextComponentString(newText));
         }
     }
 }

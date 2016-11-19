@@ -1,6 +1,6 @@
 package com.alriac.iam;
 
-import cpw.mods.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 
 import java.io.*;
 import java.util.HashMap;
